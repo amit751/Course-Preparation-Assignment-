@@ -57,6 +57,11 @@
     setTimeout(() => {
       div.style.width = radius * 2 + 'px';
       div.style.height = radius * 2 + 'px';
+
+      div.addEventListener('transitionend', function handler() {
+          div.removeEventListener('transitionend', handler);
+          resolve(div);
+        });
     }, 0);});
   }
   </script>
